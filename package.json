@@ -1,0 +1,57 @@
+{
+  "name": "crypto-stats",
+  "version": "1.0.0",
+  "description": "Statistic for Crypto currencies",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "build": "docker build -t proto/crypto-stats",
+    "dev": "./node_modules/.bin/env-cmd -e development nodemon ./src/index.js",
+    "docker:build": "docker build -t alenvlahovljak/crypto-stats .",
+    "docker:start": "./node_modules/.bin/env-cmd -e development docker run -p 4000:8800 -d alenvlahovljak/crypto-stats",
+    "test": "./node_modules/.bin/env-cmd -e test jest --watchAll --runInBand"
+  },
+  "author": "Alen Vlahovljak",
+  "license": "MIT",
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "env": {
+      "es6": true,
+      "browser": true
+    },
+    "rules": {
+      "brace-style": [
+        "error",
+        "stroustrup"
+      ],
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "no-unused-vars": [
+        "warn"
+      ],
+      "no-var": [
+        "off"
+      ],
+      "one-var": [
+        "off"
+      ]
+    }
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "supertest": "^6.1.1"
+  }
+}
